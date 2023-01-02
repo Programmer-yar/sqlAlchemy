@@ -27,4 +27,24 @@ class Person(Base):
 engine = create_engine("sqlite:///testdb.db", echo=True)
 
 # create all classes into db table like 'Person'
-Base.metadata.create_all(bind=engine)
+# Base.metadata.create_all(bind=engine)
+
+# class
+Session = sessionmaker(bind=engine)
+
+# instance
+session = Session()
+
+# person = Person(12387, "john", "Doe", "m")
+# session.add(person)
+# session.commit()
+
+# p1 = Person(67123, "Minnu", "Chinnu", "m")
+# session.add(p1)
+# session.commit()
+
+# all_persons = session.query(Person).all()
+# minnu = session.query(Person).filter(Person.first_name == "Minnu")
+
+# for person in minnu:
+#     print(person.first_name, person.last_name)
