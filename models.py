@@ -35,5 +35,5 @@ class Thing(Base):
         self.owner = owner
 
     def __repr__(self):
-        return self.tid
+        return f"{self.description} owned by {self.owner}"
 

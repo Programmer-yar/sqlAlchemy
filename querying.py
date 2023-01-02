@@ -23,7 +23,9 @@ session = Session()
 
 # p1 = session.query(Person).filter(Person.ssn == 67123).one()
 
-# t1 = Thing(1, "Car", p1.ssn)
+# p2 = session.query(Person).filter(Person.ssn == 12387).one()
+
+# t1 = Thing(3, "J. Blue", p2.ssn)
 # session.add(t1)
 # session.commit()
 
@@ -34,6 +36,6 @@ session = Session()
 #     print(person.first_name, person.last_name)
 
 all_things = session.query(Thing).all()
-
-for thing in all_things:
-    print(thing.description)
+filtered_things = session.query(Person, Thing).filter(Thing.owner == Person.ssn).filter(Person.ssn == 12387).all()
+for thing in filtered_things:
+    print(thing)
